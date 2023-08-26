@@ -15,7 +15,7 @@ pipeline {
         stage('deploy') {
             steps {
                 script {
-                    def dockercmd = "docker run -p 3080:3080 -d musman6163/my-repo:v2"
+                    def dockercmd = "docker run -p 3080:3080 -d musman6163/my-repo:v3"
                     sshagent(['ec2-server-key']) {
                         sh "ssh -o StrictHostKeyChecking=no ec2-user@15.168.13.66 ${dockercmd} "
                     }
